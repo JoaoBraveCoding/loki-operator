@@ -3,6 +3,9 @@
 version: "2"
 run:
   go: "1.26"
+  timeout: 5m
+  relative-path-mode: cfg
+  modules-download-mode: readonly
 linters:
   default: standard # use default linters: errcheck, govet, ineffassign, staticcheck, unused
   enable:
@@ -48,11 +51,6 @@ formatters:
   exclusions:
     generated: strict
     warn-unused: true
-
-run:
-  timeout: 5m
-  relative-path-mode: cfg
-  modules-download-mode: readonly
 
 issues:
   max-issues-per-linter: 0

@@ -1216,7 +1216,7 @@ func TestMutateFuncFor_TerminationGracePeriodSeconds(t *testing.T) {
 				Spec: appsv1.DeploymentSpec{
 					Template: corev1.PodTemplateSpec{
 						Spec: corev1.PodSpec{
-							TerminationGracePeriodSeconds: ptr.To(int64(30)),
+							TerminationGracePeriodSeconds: new(int64(30)),
 						},
 					},
 				},
@@ -1230,7 +1230,7 @@ func TestMutateFuncFor_TerminationGracePeriodSeconds(t *testing.T) {
 					},
 				},
 			},
-			expected: ptr.To(int64(30)),
+			expected: new(int64(30)),
 		},
 		{
 			name: "update when desired is set",
@@ -1238,7 +1238,7 @@ func TestMutateFuncFor_TerminationGracePeriodSeconds(t *testing.T) {
 				Spec: appsv1.DeploymentSpec{
 					Template: corev1.PodTemplateSpec{
 						Spec: corev1.PodSpec{
-							TerminationGracePeriodSeconds: ptr.To(int64(30)),
+							TerminationGracePeriodSeconds: new(int64(30)),
 						},
 					},
 				},
@@ -1247,12 +1247,12 @@ func TestMutateFuncFor_TerminationGracePeriodSeconds(t *testing.T) {
 				Spec: appsv1.DeploymentSpec{
 					Template: corev1.PodTemplateSpec{
 						Spec: corev1.PodSpec{
-							TerminationGracePeriodSeconds: ptr.To(int64(600)),
+							TerminationGracePeriodSeconds: new(int64(600)),
 						},
 					},
 				},
 			},
-			expected: ptr.To(int64(600)),
+			expected: new(int64(600)),
 		},
 	}
 

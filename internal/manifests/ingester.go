@@ -75,7 +75,7 @@ func NewIngesterStatefulSet(opts Options) *appsv1.StatefulSet {
 	a := commonAnnotations(opts)
 	podSpec := corev1.PodSpec{
 		ServiceAccountName:            opts.Name,
-		TerminationGracePeriodSeconds: ptr.To(defaultIngesterTerminationGracePeriodSeconds),
+		TerminationGracePeriodSeconds: new(defaultIngesterTerminationGracePeriodSeconds),
 		Affinity:                      configureAffinity(LabelIngesterComponent, opts.Name, opts.Gates.DefaultNodeAffinity, opts.Stack.Template.Ingester),
 		Volumes: []corev1.Volume{
 			{
